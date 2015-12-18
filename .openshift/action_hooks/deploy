@@ -4,14 +4,23 @@
 # up again.  This script gets executed directly, so it could be python, php,
 # ruby, etc.
 set -x
+# install java_8
+if [ ! -d $OPENSHIFT_DATA_DIR/jdk1.8.0_05 ]
+	then
+	cd $OPENSHIFT_DATA_DIR
+	wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u5-b13/jdk-8u5-linux-x64.tar.gz
+	tar -zxf jdk-8u5-linux-x64.tar.gz
+	rm jdk-8u5-linux-x64.tar.gz
+fi
+
 if [ -d $OPENSHIFT_DATA_DIR/cassandra ]
 then
 	exit 0
 else
 	cd $OPENSHIFT_DATA_DIR
-	curl -OL http://downloads.datastax.com/community/dsc-cassandra-2.0.9-bin.tar.gz
-	tar -xzvf dsc-cassandra-2.0.9-bin.tar.gz
-	rm *.tar.gz
+	curl -OL http://downloads.datastax.com/community/dsc-cassandra-3.0.0-bin.tar.gz
+	tar -xzvf dsc-cassandra-3.0.0-bin.tar.gz
+	rm dsc-cassandra-3.0.0-bin.tar.gz
 	mv dsc-cassandra-* cassandra
 	mkdir cassandra-data
 	cd cassandra-data
