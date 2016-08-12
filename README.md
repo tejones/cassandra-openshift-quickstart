@@ -1,12 +1,11 @@
-Started from https://github.com/shekhargulati/cassandra-openshift-quickstart
+Started from https://github.com/MassimoCappellano/cassandra-openshift-quickstart
 
-It seems to have this isssue: 
-https://github.com/shekhargulati/cassandra-openshift-quickstart/issues/2
+Fixes path to Java 8.
 
 Usage is the same as described in *How To Configure and Run Cassandra on OpenShift* 
 https://blog.openshift.com/cassandra-on-openshift/ the only difference is the command:
 
-`git remote add upstream https://github.com/MassimoCappellano/cassandra-openshift-quickstart.git`
+`git remote add upstream https://github.com/tejones/cassandra-openshift-quickstart.git`
 
 ## Improvement
 
